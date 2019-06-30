@@ -7,11 +7,11 @@ import (
 )
 
 func main() {
-	str := "ab"
+	regex := "abc*(ab)"
+	str := "abccc"
 
-	postfix := compiler.Re2post(str)
+	postfix := compiler.Re2post(regex)
 	nfa := compiler.Post2nfa([]rune(postfix))
-
 	match := compiler.MatchRe(nfa, str)
 
 	fmt.Println("match => ", match)
